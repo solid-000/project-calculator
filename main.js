@@ -1,5 +1,10 @@
 const numpad = document.querySelector(".numpad");
 const screen = document.querySelector("input");
+const operatorContainer = document.querySelector(".operators");
+let num1 = 0;
+let num2 = 0;
+let operator = "";
+let result = 0;
 
 numpad.addEventListener("click", (event) => {
     let num = event.target;
@@ -36,11 +41,52 @@ numpad.addEventListener("click", (event) => {
             screen.value += 0;
             break;
         case 'equals':
-            // run function
+            printResult();
             break;
         case ".":
             // screen.value += ;
             break;
-    }
+        }
     }
 });
+operatorContainer.addEventListener("click", (event)=> {
+    let op = event.target;
+    switch(op.id){
+        case 'plus':
+            setOperator("+");
+            break;
+        case 'minus':
+            setOperator("-");
+            break;
+        case 'multiply':
+            setOperator("*");
+            break;
+        case 'divide':
+            setOperator("/");
+            break;
+    }
+});
+
+function setOperator(buffer){
+    num1 = +screen.value;
+    operator = buffer;
+    screen.value = "";
+}
+function printResult(){
+    num2 = +screen.value;
+    switch(operator){
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+    }
+    screen.value = result;
+    result = 0;
+}
