@@ -7,6 +7,7 @@ let check = 0;
 let num3 = 0;
 let operator = "";
 let op = "";
+let result = 0;
 
 numpad.addEventListener("click", (event) => {
     screen.style.color = "black";
@@ -105,17 +106,22 @@ function printResult(){
     num2 = +screen.value;
     switch(operator){
         case '+':
-            screen.value = num1 + num2;
+            result = num1 + num2;
             break;
         case '-':
-            screen.value = num1 - num2;
+            result = num1 - num2;
             break;
         case '*':
-            screen.value = num1 * num2;
+            result = num1 * num2;
             break;
         case '/':
-            screen.value = (num1 / num2);
+            result = (num1 / num2);
             break;
+    }
+    if(!Number.isInteger(result)){
+        screen.value = result.toFixed(2);
+    }else{
+        screen.value = result
     }
     check = 0;
 }
@@ -128,6 +134,7 @@ function clear(){
     check = 0;
     operator = "";
     op = '';
+    result = 0;
 }
 
 // function addPoint(){
