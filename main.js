@@ -9,6 +9,7 @@ let operator = "";
 let op = "";
 
 numpad.addEventListener("click", (event) => {
+    screen.style.color = "black";
     let num = event.target;
     if(screen.value<=9999999999999999){
     switch(num.id){
@@ -43,7 +44,7 @@ numpad.addEventListener("click", (event) => {
             screen.value += 0;
             break;
         case "point":
-            // screen.value += ;
+            addPoint();
             break;
         case "ac":
             clear();
@@ -52,6 +53,7 @@ numpad.addEventListener("click", (event) => {
     }
 });
 operatorContainer.addEventListener("click", (event)=> {
+    screen.style.color = "black";
     let op = event.target;
     switch(op.id){
         case 'plus':
@@ -71,6 +73,7 @@ operatorContainer.addEventListener("click", (event)=> {
             break;
     }
 });
+
 
 function setOperator(buffer){
     operator = buffer;
@@ -98,6 +101,7 @@ function setOperator(buffer){
     screen.value = "";
 }
 function printResult(){
+    screen.style.color = "green";
     num2 = +screen.value;
     switch(operator){
         case '+':
@@ -125,3 +129,8 @@ function clear(){
     operator = "";
     op = '';
 }
+
+// function addPoint(){
+//     let n1 = +screen.value;
+//     console.log(n1)
+// }
