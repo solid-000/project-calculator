@@ -56,6 +56,9 @@ numpad.addEventListener("click", (event) => {
         case "back":
             deleteNum();
             break;
+        case "sign":
+            screen.value = -screen.value;
+            break;
     }
 });
 
@@ -146,7 +149,6 @@ function clear(){
 
 function deleteNum(){
     let temp = ((screen.value).toString());
-
     screen.value = +(temp.substr(0, temp.length-1));
 }
 
