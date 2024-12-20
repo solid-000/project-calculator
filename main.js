@@ -47,12 +47,18 @@ numpad.addEventListener("click", (event) => {
         case "point":
             addPoint();
             break;
+        }
+    }
+    switch(num.id){
         case "ac":
             clear();
             break;
-        }
+        case "back":
+            deleteNum();
+            break;
     }
 });
+
 operatorContainer.addEventListener("click", (event)=> {
     screen.style.color = "black";
     let op = event.target;
@@ -101,6 +107,7 @@ function setOperator(buffer){
     check = 1;
     screen.value = "";
 }
+
 function printResult(){
     screen.style.color = "green";
     num2 = +screen.value;
@@ -135,6 +142,12 @@ function clear(){
     operator = "";
     op = '';
     result = 0;
+}
+
+function deleteNum(){
+    let temp = ((screen.value).toString());
+
+    screen.value = +(temp.substr(0, temp.length-1));
 }
 
 // function addPoint(){

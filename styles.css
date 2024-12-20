@@ -57,7 +57,7 @@ body{
     flex: 1 1 30%;
 }
 #ac{
-    flex-basis: 100%;
+    flex-basis: 64%;
 }
 #zero{
     flex-basis: 65%;
