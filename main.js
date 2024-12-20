@@ -3,8 +3,11 @@ const screen = document.querySelector("input");
 const operatorContainer = document.querySelector(".operators");
 let num1 = 0;
 let num2 = 0;
+let check = 0;
+let num3 = 0;
 let operator = "";
 let result = 0;
+let op = "";
 
 numpad.addEventListener("click", (event) => {
     let num = event.target;
@@ -68,25 +71,46 @@ operatorContainer.addEventListener("click", (event)=> {
 });
 
 function setOperator(buffer){
-    num1 = +screen.value;
     operator = buffer;
+    if(check == 0){
+        num1 = +screen.value;
+    }else if(check == 1){
+        num3 = +screen.value;
+        switch(op){
+            case '+':
+                num1 = num1 + num3;
+                break;
+            case '-':
+                num1 = num1 - num3;
+                break;
+            case '*':
+                num1 = num1 * num3;
+                break;
+            case '/':
+                num1 = num1 / num3;
+                break;
+        }
+    }
+    op = operator;
+    check = 1;
     screen.value = "";
 }
 function printResult(){
     num2 = +screen.value;
     switch(operator){
         case '+':
-            result = num1 + num2;
+            screen.value = num1 + num2;
             break;
         case '-':
-            result = num1 - num2;
+            screen.value = num1 - num2;
             break;
         case '*':
-            result = num1 * num2;
+            screen.value = num1 * num2;
             break;
         case '/':
-            result = num1 / num2;
+            screen.value = num1 / num2;
+            break;
     }
-    screen.value = result;
     result = 0;
+    check = 0;
 }
