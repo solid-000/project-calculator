@@ -6,7 +6,6 @@ let num2 = 0;
 let check = 0;
 let num3 = 0;
 let operator = "";
-let result = 0;
 let op = "";
 
 numpad.addEventListener("click", (event) => {
@@ -40,14 +39,14 @@ numpad.addEventListener("click", (event) => {
         case '9':
             screen.value += 9;
             break;
-        case '0':
+        case 'zero':
             screen.value += 0;
             break;
-        case 'equals':
-            printResult();
-            break;
-        case ".":
+        case "point":
             // screen.value += ;
+            break;
+        case "ac":
+            clear();
             break;
         }
     }
@@ -66,6 +65,9 @@ operatorContainer.addEventListener("click", (event)=> {
             break;
         case 'divide':
             setOperator("/");
+            break;
+        case 'equals':
+            printResult();
             break;
     }
 });
@@ -108,9 +110,18 @@ function printResult(){
             screen.value = num1 * num2;
             break;
         case '/':
-            screen.value = num1 / num2;
+            screen.value = (num1 / num2);
             break;
     }
-    result = 0;
     check = 0;
+}
+
+function clear(){
+    screen.value = "";
+    num1 = 0;
+    num2 = 0;
+    num3 = 0;
+    check = 0;
+    operator = "";
+    op = '';
 }

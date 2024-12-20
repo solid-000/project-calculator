@@ -56,6 +56,16 @@ body{
 .numpad>button{
     flex: 1 1 30%;
 }
+#ac{
+    flex-basis: 100%;
+}
+#zero{
+    flex-basis: 65%;
+}
+#point{
+    flex-basis: 31%;
+}
+
 .operators>button{
     flex: auto;
 }
